@@ -22,21 +22,37 @@ import java.util.UUID;
 public class Customers {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private UUID code;
+    @Column(name = "NAME")
     private String name;
+    @Column(name = "GENDER")
     private String gender;
+    @Column(name = "JOIN_DATE")
     private Date joinDate;
+    @Column(name = "LEVEL")
     private String level;
-    private String totalPoint;
-    private String dob;
+    @Column(name = "TOTAL_POINT")
+    private int totalPoint;
+    @Column(name = "DOB")
+    private Date dob;
+    @Column(name = "ADDRESS_LINE_1")
     private String addressLine1;
+    @Column(name = "ADDRESS_LINE_2")
     private String addressLine2;
+    @Column(name = "ADDRESS_LINE_3")
     private String addressLine3;
+    @Column(name = "ADDRESS_LINE_4")
     private String addressLine4;
+    @Column(name = "ADDRESS_LINE_5")
     private String addressLine5;
+    @Column(name = "CONTACT")
     private String contact;
+    @Column(name = "EMAIL")
     private String email;
-    private String purchaseDateAndTime;
-    private Date updateDate;
+    @Column(name = "PURCHASE_DATE_AND_TIME")
+    private Date purchaseDateAndTime;
+    @Column(name = "CREATE_DATE")
     private Date createDate;
+    @Column(name = "UPDATE_DATE")
+    private Date updateDate;
 }
