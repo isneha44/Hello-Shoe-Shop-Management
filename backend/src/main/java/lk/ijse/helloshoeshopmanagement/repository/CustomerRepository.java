@@ -1,13 +1,13 @@
 package lk.ijse.helloshoeshopmanagement.repository;
 
-import lk.ijse.helloshoeshopmanagement.entity.Customers;
+import lk.ijse.helloshoeshopmanagement.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @author Imalka Gayani
  */
 
-public interface CustomerRepository extends JpaRepository<Customers, String> {
+public interface CustomerRepository extends JpaRepository<Customer, String> {
 
 }
 

@@ -1,4 +1,4 @@
 package lk.ijse.helloshoeshopmanagement.entity;
 
-public class Suppliers {
+public class Supplier {
 }

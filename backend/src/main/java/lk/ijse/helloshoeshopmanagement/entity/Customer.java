@@ -10,7 +10,6 @@ import lombok.ToString;
 
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * @author Imalka Gayani
@@ -21,10 +20,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tbl_CUSTOMER")
-public class Customers {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String code;
+    private String customerCode;
     @Column(name = "NAME")
     private String name;
     @Column(name = "GENDER")

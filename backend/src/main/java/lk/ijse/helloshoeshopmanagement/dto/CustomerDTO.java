@@ -20,7 +20,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerDTO {
-    private String code;
+    private String customerCode;
 
     private String name;
 
