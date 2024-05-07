@@ -1,7 +1,8 @@
 package lk.ijse.helloshoeshopmanagement.entity;
 
-import com.nimbusds.openid.connect.sdk.claims.Gender;
 import jakarta.persistence.*;
+import lk.ijse.helloshoeshopmanagement.enums.Gender;
+import lk.ijse.helloshoeshopmanagement.enums.Level;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,11 +28,11 @@ public class Customers {
     @Column(name = "NAME")
     private String name;
     @Column(name = "GENDER")
-    private String gender;
+    private Gender gender;
     @Column(name = "JOIN_DATE")
     private Date joinDate;
     @Column(name = "LEVEL")
-    private String level;
+    private Level level;
     @Column(name = "TOTAL_POINT")
     private int totalPoint;
     @Column(name = "DOB")
