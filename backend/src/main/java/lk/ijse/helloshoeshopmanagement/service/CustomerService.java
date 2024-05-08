@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface CustomerService {
     Customer saveCustomer(Customer customer);
     List<Customer> getAllCustomer();
-    Optional<Customer> findById(String customerCode);
-    boolean deleteCustomer(String customerCode);
+    Optional<Customer> findByCustomerCode(String customerCode);
+    boolean deleteCustomer(Customer customerCode);
 }
