@@ -1,0 +1,40 @@
+* {
+    padding: 0;margin: 0;
+}
+
+.bill-body {
+    font-size: 18px;
+}
+
+.bill-body-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+.print-button-container>button {
+    display: flex;
+    justify-content: center;
+    margin: 8px auto;
+    background-color: #32a852;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    padding: 4px 16px;
+    border-radius: 8px;
+}
+
+.bill-container-head {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.bill-container-head > p:nth-child(2) {
+    display: flex;
+    gap: 16px;
+    font-size: 16px;
+    font-weight: 600;
+}

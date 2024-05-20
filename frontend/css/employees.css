@@ -1,0 +1,76 @@
+.add-employee-container>button {
+    padding: 4px 16px;
+    border: none;
+    font-size: 18px;
+    text-transform: capitalize;
+    background-color: #32a852;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.add-employee-container>button:active {
+    box-shadow: 1px 1px 5px #000 inset;
+}
+
+.info-employee-container {
+    margin: 16px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.employee-card {
+    width: 300px;
+    background-color: #2b2c30;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: solid 3px #000;
+}
+
+.employee-card-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 16px;
+}
+
+.employee-card-child > img {
+    margin: 8px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   width: 100px;
+   border-radius: 999px;
+   border: solid 3px #000;
+
+}
+
+.employee-card-child>p:first-child {
+    font-weight: 600;
+}
+
+.employee-card-child-button-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 24px;
+    margin: 8px;
+}
+
+.employee-card-edit-info-button {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border: none;
+    padding: 2px 8px;
+    font-weight: 600;
+    background-color: #fff;
+    border-radius: 4px;
+}

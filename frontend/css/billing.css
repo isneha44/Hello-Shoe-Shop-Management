@@ -1,0 +1,144 @@
+.billing-add-item-container>form {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.billing-add-item-container>form>input:first-child {
+    width: 80%;
+    max-width: 500px;
+    font-size: 16px;
+    padding: 12px 6px;
+}
+
+
+.billing-add-item-container>form>input:nth-child(2) {
+    background-color: #32a852;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 0 6px;
+    border-radius: 4px;
+}
+
+.billing-add-item-container>form>input:nth-child(2):active {
+    box-shadow: 1px 1px 5px #000 inset;
+}
+
+.billing-added-item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.billing-added-item-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    width: 300px;
+    border-radius: 8px;
+    padding: 0 0 8px 0;
+    background-color: #d5d0d0;
+}
+
+.billing-added-item-child-image-container>img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.billing-added-item-child-description {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    flex-direction: column;
+}
+
+.name-container>.name {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.id-container>.id {
+    text-align: center;
+    font-weight: 500;
+}
+
+.category-status-size-container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 8px;
+    margin: 4px;
+}
+
+.category-status-size-container>p {
+    border-radius: 4px;
+    padding: 2px 6px;
+    color: #fff;
+}
+
+.category-status-size-container>.shoe-category {
+    background-color: #770000;
+}
+
+
+.category-status-size-container>.shoe-status {
+    background-color: #005200;
+}
+
+.category-status-size-container>.shoe-size {
+    background-color: #000073;
+}
+
+.price-container {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.remove-button-container>button {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin: 4px auto;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+
+}
+
+
+.remove-button-container>button:active {
+    box-shadow: 1px 1px 5px #000 inset;
+}
+
+.add-to-bill-container > a > button {
+    padding: 4px 16px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #020265;
+    color: #fff;
+    border-radius: 6px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-to-bill-container > a > button:active {
+    box-shadow: 3px 3px 5px #000000 inset;
+
+}
