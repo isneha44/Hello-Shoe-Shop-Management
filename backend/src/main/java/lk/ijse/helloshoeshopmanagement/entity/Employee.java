@@ -1,6 +1,7 @@
 package lk.ijse.helloshoeshopmanagement.entity;
 
 import jakarta.persistence.*;
+import lk.ijse.helloshoeshopmanagement.enums.Gender;
 import lk.ijse.helloshoeshopmanagement.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +29,7 @@ public class Employee {
     @Column(name = "PROFILE_PIC")
     private String profilePic;
     @Column(name = "GENDER")
-    private String gender;
+    private Gender gender;
     @Column(name = "STATUS")
     private String status;
     @Column(name = "DESIGNATION")

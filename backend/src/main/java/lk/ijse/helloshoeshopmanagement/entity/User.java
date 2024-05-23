@@ -2,6 +2,7 @@ package lk.ijse.helloshoeshopmanagement.entity;
 
 
 import jakarta.persistence.*;
+import lk.ijse.helloshoeshopmanagement.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,7 +31,7 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
     @Column(name = "ROLE")
-    private String role;
+    private Role role;
     @Column(name = "CREATE_DATE")
     private Date createDate;
     @Column(name = "UPDATE_DATE")

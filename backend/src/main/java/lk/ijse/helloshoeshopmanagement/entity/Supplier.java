@@ -1,6 +1,7 @@
 package lk.ijse.helloshoeshopmanagement.entity;
 
 import jakarta.persistence.*;
+import lk.ijse.helloshoeshopmanagement.enums.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +25,7 @@ public class Supplier {
     @Column(name = "SUPPLIER_NAME")
     private String supplierName;
     @Column(name = "CATEGORY")
-    private String category;
+    private Category category;
     @Column(name = "ADDRESS_LINE_1")
     private String addressLine1;
     @Column(name = "ADDRESS_LINE_2")
