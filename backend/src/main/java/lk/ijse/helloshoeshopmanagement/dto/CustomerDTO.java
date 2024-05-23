@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -48,7 +49,7 @@ public class CustomerDTO {
 
     private String email;
 
-    private Timestamp purchaseDateAndTime;
+    private LocalDateTime purchaseDateAndTime;
 
     private Date createDate;
 

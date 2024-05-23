@@ -20,8 +20,6 @@ import java.util.Date;
 @Table(name = "tbl_SALE")
 public class Sale {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private String itemCode;
     @Column(name = "ORDER_NO")
     private String orderNo;
