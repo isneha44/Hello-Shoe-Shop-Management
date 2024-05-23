@@ -11,6 +11,7 @@ import lombok.ToString;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * @author Imalka Gayani
@@ -24,7 +25,7 @@ import java.util.Date;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String customerCode;
+    private UUID customerCode;
     @Column(name = "NAME")
     private String name;
     @Column(name = "GENDER")

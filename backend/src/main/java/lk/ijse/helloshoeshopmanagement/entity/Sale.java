@@ -21,9 +21,6 @@ import java.util.UUID;
 public class Sale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID saleId;
-
-    @Column(name = "ITEM_CODE")
     private String itemCode;
     @Column(name = "ORDER_NO")
     private String orderNo;

@@ -1,14 +1,14 @@
 package lk.ijse.helloshoeshopmanagement.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lk.ijse.helloshoeshopmanagement.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * @author Imalka Gayani
@@ -20,9 +20,9 @@ import java.util.Date;
 @NoArgsConstructor
 @Table(name = "tbl_CUSTOMER")
 public class Employee {
-
-    @Column(name = "EMPLOYEE_CODE")
-    private String employeeCode;
+ @Id
+ @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID employeeCode;
     @Column(name = "EMPLOYEE_NAME")
     private String employeeName;
     @Column(name = "PROFILE_PIC")
@@ -34,7 +34,7 @@ public class Employee {
     @Column(name = "DESIGNATION")
     private String designation;
     @Column(name = "ACCESS_ROLE")
-    private String accessRole;
+    private Role accessRole;
     @Column(name = "DOB")
     private Date dob;
     @Column(name = "DATE_OF_JOIN")
