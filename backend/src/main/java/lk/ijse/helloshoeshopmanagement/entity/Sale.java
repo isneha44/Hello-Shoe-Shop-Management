@@ -8,7 +8,7 @@ import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.UUID;
+
 /**
  * @author Imalka Gayani
  */
@@ -21,6 +21,7 @@ import java.util.UUID;
 public class Sale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private String itemCode;
     @Column(name = "ORDER_NO")
     private String orderNo;
