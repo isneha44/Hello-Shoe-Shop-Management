@@ -2,7 +2,6 @@ package lk.ijse.helloshoeshopmanagement.enums;
 /**
  * @author Imalka Gayani
  */
-public enum Gender {
-    MALE, FEMALE, OTHER
+public enum Role {
+    ADMIN,USER
 }
-

@@ -3,5 +3,5 @@ package lk.ijse.helloshoeshopmanagement.enums;
  * @author Imalka Gayani
  */
 public enum Level {
-    Gold,Silver,Bronze,New
+    GOLD, SILVER, BRONZE, NEW
 }

@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -51,7 +52,7 @@ public class Customer {
     @Column(name = "EMAIL")
     private String email;
     @Column(name = "PURCHASE_DATE_AND_TIME")
-    private Timestamp purchaseDateAndTime;
+    private LocalDateTime purchaseDateAndTime;
     @Column(name = "CREATE_DATE")
     private Date createDate;
     @Column(name = "UPDATE_DATE")
