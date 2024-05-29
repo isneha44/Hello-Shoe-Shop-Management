@@ -1,6 +1,7 @@
 package lk.ijse.helloshoeshopmanagement.controller;
 
 import lk.ijse.helloshoeshopmanagement.dto.CustomerDTO;
+import lk.ijse.helloshoeshopmanagement.entity.Customer;
 import lk.ijse.helloshoeshopmanagement.enums.Gender;
 import lk.ijse.helloshoeshopmanagement.enums.Level;
 import lk.ijse.helloshoeshopmanagement.service.CustomerService;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -30,7 +32,7 @@ public class CustomerController {
     public ResponseEntity<CustomerDTO> saveCustomer(@RequestBody Map<String, String> credentials) {
         loggerLog4J.info("Start saveCustomer");
         try {
-            String[] requiredFields = {"name", "gender", "joinDate", "level", "totalPoint", "dob", "addressLine1", "contact", "email", "purchaseDateAndTime"};
+            String[] requiredFields = {"name", "gender", "joinDate", "level", "totalPoint", "dob", "addressLine1","addressLine2","addressLine3","addressLine4","addressLine5","contact", "email", "purchaseDateAndTime"};
             validateMap(credentials, requiredFields);
 
             CustomerDTO customerDTO = mapToCustomerDTO(credentials);
@@ -46,8 +48,9 @@ public class CustomerController {
 
     @GetMapping
     public ResponseEntity<List<CustomerDTO>> getAllCustomer() {
-        loggerLog4J.info("Start getAllCustomers");
+        loggerLog4J.info("Start getAllCustomer");
         try {
+            loggerLog4J.info("End getAllCustomer");
             return ResponseEntity.ok(customerService.getAllCustomer());
         } catch (Exception e) {
             handleException(e);
@@ -90,6 +93,62 @@ public class CustomerController {
         }
     }
 
+    @GetMapping("/join-date")
+    public ResponseEntity<List<CustomerDTO>> findByJoinDate(@RequestParam Date joinDate) {
+        loggerLog4J.info("Start findByJoinDate");
+        try {
+            List<CustomerDTO> customers = customerService.findByJoinDate(joinDate);
+            return ResponseEntity.ok(customers);
+        } catch (Exception e) {
+            handleException(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        } finally {
+            loggerLog4J.info("End findByJoinDate");
+        }
+    }
+
+    @GetMapping("/level")
+    public ResponseEntity<List<CustomerDTO>> findByLevel(@RequestParam Level level) {
+        loggerLog4J.info("Start findByLevel");
+        try {
+            List<CustomerDTO> customers = customerService.findByLevel(level);
+            return ResponseEntity.ok(customers);
+        } catch (Exception e) {
+            handleException(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        } finally {
+            loggerLog4J.info("End findByLevel");
+        }
+    }
+
+    @GetMapping("/total-points")
+    public ResponseEntity<List<CustomerDTO>> findByTotalPoint(@RequestParam int totalPoint) {
+        loggerLog4J.info("Start findByTotalPoint");
+        try {
+            List<CustomerDTO> customers = customerService.findByTotalPoint(totalPoint);
+            return ResponseEntity.ok(customers);
+        } catch (Exception e) {
+            handleException(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        } finally {
+            loggerLog4J.info("End findByTotalPoint");
+        }
+    }
+
+    @GetMapping("/dob")
+    public ResponseEntity<List<CustomerDTO>> findByDOB(@RequestParam Date dob) {
+        loggerLog4J.info("Start findByDOB");
+        try {
+            List<CustomerDTO> customers = customerService.findByDOB(dob);
+            return ResponseEntity.ok(customers);
+        } catch (Exception e) {
+            handleException(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        } finally {
+            loggerLog4J.info("End findByDOB");
+        }
+    }
+
     private void handleException(Exception e) {
         loggerLog4J.error("Error", e);
         e.printStackTrace();
@@ -122,7 +181,9 @@ public class CustomerController {
         customerDTO.setPurchaseDateAndTime(LocalDateTime.parse(credentials.get("purchaseDateAndTime")));
         return customerDTO;
 
+
     }
 }
+
 
 

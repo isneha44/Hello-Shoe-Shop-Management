@@ -2,6 +2,7 @@ package lk.ijse.helloshoeshopmanagement.serviceImpl;
 
 import lk.ijse.helloshoeshopmanagement.dto.CustomerDTO;
 import lk.ijse.helloshoeshopmanagement.entity.Customer;
+import lk.ijse.helloshoeshopmanagement.enums.Level;
 import lk.ijse.helloshoeshopmanagement.repository.CustomerRepository;
 import lk.ijse.helloshoeshopmanagement.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +29,6 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDTO saveCustomer(CustomerDTO customerDTO) {
         Customer customer = mapToEntity(customerDTO);
 
-        // Set createDate and updateDate
         Date currentDate = new Date();
         customer.setUpdateDate(currentDate);
         if (customer.getCustomerCode() == null) {
@@ -38,8 +38,6 @@ public class CustomerServiceImpl implements CustomerService {
         Customer savedCustomer = customerRepository.save(customer);
         return mapToDTO(savedCustomer);
     }
-
-
 
     @Override
     public List<CustomerDTO> getAllCustomer() {
@@ -57,6 +55,26 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void deleteCustomer(UUID customerCode) {
         customerRepository.deleteById(customerCode);
+    }
+
+    @Override
+    public List<CustomerDTO> findByJoinDate(Date joinDate) {
+        return customerRepository.findByJoinDate(joinDate);
+    }
+
+    @Override
+    public List<CustomerDTO> findByLevel(Level level) {
+        return customerRepository.findByLevel(level);
+    }
+
+    @Override
+    public List<CustomerDTO> findByTotalPoint(int totalPoint) {
+        return customerRepository.findByTotalPoint(totalPoint);
+    }
+
+    @Override
+    public List<CustomerDTO> findByDOB(Date dob) {
+        return customerRepository.findByDob(dob);
     }
 
     private CustomerDTO mapToDTO(Customer customer) {
