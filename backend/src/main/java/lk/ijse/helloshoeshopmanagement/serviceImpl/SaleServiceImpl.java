@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -20,97 +21,39 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class SaleServiceImpl implements SaleService {
+
+    @Autowired
+    private SaleRepository saleRepository;
+
+
     @Override
-    public SaleDTO saveSale(SaleDTO saleDTO) {
-        return null;
+    public Sale saveSale(Sale sale) {
+        return saleRepository.save(sale);
     }
 
     @Override
-    public List<SaleDTO> getAllSale() {
-        return null;
+    public List<Sale> getAllSale() {
+        return saleRepository.findAll();
     }
 
     @Override
-    public Optional<SaleDTO> findById(UUID saleId) {
-        return Optional.empty();
+    public Optional<Sale> findById(UUID saleId) {
+        return saleRepository.findById(saleId);
     }
 
     @Override
-    public void deleteSale(UUID id) {
-
+    public boolean deleteSale(Sale id) {
+        saleRepository.delete(id);
+        return true;
     }
-//    @Autowired
-//    private final SaleRepository saleRepository;
-//    @Override
-//    public SaleDTO saveSale(SaleDTO saleDTO) {
-//        Sale sale = mapToEntity(saleDTO);
-//
-//        Date currentDate = new Date();
-//        sale.setUpdateDate(currentDate);
-//        if (sale.getItemCode() == null) {
-//            sale.setCreateDate(currentDate);
-//        }
-//
-//        Sale savedSale = saleRepository.save(sale);
-//        return mapToDTO(savedSale);
-//    }
-//
-//    @Override
-//    public List<SaleDTO> getAllSale() {
-//        return saleRepository.findAll().stream()
-//                .map(this::mapToDTO)
-//                .collect(Collectors.toList());
-//    }
-//
-//    @Override
-//    public Optional<SaleDTO> findById(String itemCode) {
-//        return saleRepository.findById(itemCode)
-//                .map(this::mapToDTO);
-//    }
-//
-//    @Override
-//    public void deleteSale(String itemCode) {
-//        saleRepository.deleteById(itemCode);
-//    }
-//
-//    private SaleDTO mapToDTO(Sale sale) {
-//        SaleDTO saleDTO = new SaleDTO();
-//        saleDTO.setItemCode(sale.getItemCode());
-//        saleDTO.setOrderNo(sale.getOrderNo());
-//        saleDTO.setCustomerName(sale.getCustomerName());
-//        saleDTO.setItemDesc(sale.getItemDesc());
-//        saleDTO.setSize(sale.getSize());
-//        saleDTO.setUnitPrice(sale.getUnitPrice());
-//        saleDTO.setItemQty(sale.getItemQty());
-//        saleDTO.setTotalPrice(sale.getTotalPrice());
-//        saleDTO.setPurchaseDate(sale.getPurchaseDate());
-//        saleDTO.setPaymentMethod(sale.getPaymentMethod());
-//        saleDTO.setAddedPoints(sale.getAddedPoints());
-//        saleDTO.setCashierName(sale.getCashierName());
-//        saleDTO.setCreateDate(sale.getCreateDate());
-//        saleDTO.setUpdateDate(sale.getUpdateDate());
-//        return saleDTO;
-//    }
-//
-//    private Sale mapToEntity(SaleDTO saleDTO) {
-//        Sale sale = new Sale();
-//        if (saleDTO.getItemCode() != null) {
-//            sale.setItemCode(saleDTO.getItemCode());
-//        }
-//
-//        sale.setOrderNo(saleDTO.getOrderNo());
-//        sale.setCustomerName(saleDTO.getCustomerName());
-//        sale.setItemDesc(saleDTO.getItemDesc());
-//        sale.setSize(saleDTO.getSize());
-//        sale.setUnitPrice(saleDTO.getUnitPrice());
-//        sale.setItemQty(saleDTO.getItemQty());
-//        sale.setTotalPrice(saleDTO.getTotalPrice());
-//        sale.setPurchaseDate(saleDTO.getPurchaseDate());
-//        sale.setPaymentMethod(saleDTO.getPaymentMethod());
-//        sale.setAddedPoints(saleDTO.getAddedPoints());
-//        sale.setCashierName(saleDTO.getCashierName());
-//        sale.setCreateDate(saleDTO.getCreateDate());
-//        sale.setUpdateDate(saleDTO.getUpdateDate());
-//        return sale;
-//    }
+
+    @Override
+    public List<Sale> findByPurchaseDate(LocalDateTime purchaseDate) {
+        return (List<Sale>) saleRepository.findByPurchaseDate(purchaseDate);
+    }
+
+    @Override
+    public List<Sale> findByCustomerName(String customerName) {
+        return saleRepository.findByCustomerName(customerName);
+    }
 }

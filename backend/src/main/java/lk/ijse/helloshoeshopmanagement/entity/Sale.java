@@ -21,6 +21,7 @@ import java.util.UUID;
 @Table(name = "tbl_SALE")
 public class Sale {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID saleId;
     @Column(name = "ITEM_CODE")
     private String itemCode;

@@ -18,7 +18,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class Inventory {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String itemCode;
     @Column(name = "ITEM_DESCRIPTION")
     private String itemDesc;

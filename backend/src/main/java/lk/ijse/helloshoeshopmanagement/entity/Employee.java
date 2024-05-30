@@ -19,7 +19,7 @@ import java.util.UUID;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tbl_CUSTOMER")
+@Table(name = "tbl_employee")
 public class Employee {
  @Id
  @GeneratedValue(strategy = GenerationType.AUTO)
