@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;

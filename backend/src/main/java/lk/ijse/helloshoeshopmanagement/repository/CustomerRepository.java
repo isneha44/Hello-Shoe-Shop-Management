@@ -15,12 +15,12 @@ import java.util.UUID;
 
 public interface CustomerRepository extends JpaRepository<Customer, UUID> {
 
-    List<CustomerDTO> findByTotalPoint(int totalPoint);
+    Customer findByTotalPoint(int totalPoint);
 
-    List<CustomerDTO> findByDob(Date dob);
+    Customer findByDob(Date dob);
 
-    List<CustomerDTO> findByLevel(Level level);
+    Customer findByLevel(Level level);
 
-    List<CustomerDTO> findByJoinDate(Date joinDate);
+    Customer findByJoinDate(Date joinDate);
 }
 

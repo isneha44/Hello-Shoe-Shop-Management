@@ -1,7 +1,5 @@
 package lk.ijse.helloshoeshopmanagement.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
 import lk.ijse.helloshoeshopmanagement.enums.Gender;
 import lk.ijse.helloshoeshopmanagement.enums.Level;
 import lombok.AllArgsConstructor;
@@ -9,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
 
