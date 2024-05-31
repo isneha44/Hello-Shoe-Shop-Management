@@ -3,6 +3,7 @@ package lk.ijse.helloshoeshopmanagement.serviceImpl;
 import lk.ijse.helloshoeshopmanagement.entity.Supplier;
 import lk.ijse.helloshoeshopmanagement.repository.SupplierRepository;
 import lk.ijse.helloshoeshopmanagement.service.SupplierService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.UUID;
  * @author Imalka Gayani
  */
 @Service
+@RequiredArgsConstructor
 public class SupplierServiceImpl implements SupplierService {
 
     @Autowired
