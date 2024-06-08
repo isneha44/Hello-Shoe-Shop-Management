@@ -1,0 +1,258 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee</title>
+  <meta name="theme-color" content="red">
+  <meta name="robots" content="index,follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/normalize.css">
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../style/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="shortcut icon" type="image/x-icon" href="../logo3.png">
+
+</head>
+<body>
+<main>
+  <section>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <a href="#" class="profile">
+        <img src="../logo3.png">
+      </a>
+      <a href="#" class="logo ">
+        <i class=''></i>
+        <div class="logo-name"><span>HELLO</span>SHOP</div>
+      </a>
+      <ul class="side-menu">
+        <li><b><a href="../page/dashboardAdmin.html"><i class='bx bxs-dashboard'></i>Dashboard</a></b></li>
+        <li class="active"><b><a href="../page/employee.html"><i class='bx bx-user-pin'></i>Employee</a></b></li>
+        <li><b><a href="../page/item.html"><i class='bx bxs-objects-vertical-bottom'></i>Stock</a></b></li>
+        <li><b><a href="../page/supplier.html"><i class='bx bx-purchase-tag'></i>Supplier</a></b></li>
+        <li><b><a href="../page/todayOrder.html"><i class='bx bx-store-alt'></i>Orders</a></b></li>
+        <li><b><a href="../page/return.html"><i class='bx bx-recycle'></i>Return</a></b></li>
+        <li><b><a href="../page/style.css"><i class='bx bx-group'></i>Users</a></b></li>
+        <li><b><a href="../page/style.css"><i class='bx bx-cog'></i>Settings</a></b></li>
+
+      </ul>
+      <ul class="side-menu">
+        <li id="log_out">
+          <a href="../page/login.html" class="logout">
+            <i class='bx bx-log-out-circle'></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <div class="content">
+      <!-- Navbar -->
+      <nav>
+        <i class='bx bx-menu' ></i>
+        <form action="#">
+          <div class="form-input">
+            <input type="search" id="search_Id" placeholder="Search...">
+            <button type="button" class="search-btn"><i class='bx bx-search' ></i></button>
+          </div>
+        </form>
+
+        <input type="checkbox" id="theme-toggle" hidden>
+        <label for="theme-toggle" class="theme-toggle"></label>
+
+        <a href="#" class="notif">
+          <i class='bx bx-bell'></i>
+          <span class="count">3</span>
+        </a>
+        <a href="#" class="profile">
+          <img src="../img/other/p1.jpg" height="70" width="70"/>
+        </a>
+      </nav>
+      <!-- End of Navbar -->
+
+      <h1>Employee Form </h1>
+      <div class="cusF">
+        <div class="box-info">
+          <form id="empForm">
+            <div class="row g-5 mb-4">
+              <div class="col">
+                <label for="empId" class="form-label"> Employee code</label>
+                <input id="empId" name="code" type="text" class="form-control">
+              </div>
+              <div class="col">
+                <label for="empName" class="form-label">Employee name</label>
+                <input id="empName" name="name" type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="row g-5 mb-4">
+              <div class="col">
+                <label for="status" class="form-label">Status</label>
+                <input type="text" id="status" name="status" class="form-control">
+              </div>
+              <div class="col mb-2">
+                <label for="designation" class="form-label">Designation</label>
+                <select id="designation" name="designation" class="form-select" aria-label="Default select example">
+                  <option selected></option>
+                  <option value="MANAGER">Manager</option>
+                  <option value="ACCOUNTANT">Accountant</option>
+                  <option value="SENIOR_SALES_ASSISTANT">Senior Sales Assistant</option>
+                  <option value="SALES_ASSISTANT">SalesAssistant</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row g-5 mb-4">
+              <div class="col">
+                <label for="empGender" class="form-label">Gender</label>
+                <select id="empGender" name="gender" class="form-select" aria-label="Default select example">
+                  <option selected></option>
+                  <option value="MALE">Male</option>
+                  <option value="FEMALE">Female</option>
+                </select>
+              </div>
+              <div class="col mb-2">
+                <label for="email" class="form-label">Email</label><br>
+                <input type="text" id="email" name="email" class="form-control">
+              </div>
+            </div>
+
+            <div class="row g-5 mb-4">
+              <div class="col">
+                <label for="role" class="form-label">Role</label>
+                <select id="role" name="role" class="form-select" aria-label="Default select example">
+                  <option selected></option>
+                  <option value="ADMIN">Admin</option>
+                  <option value="USER">User</option>
+                  </select>
+              </div>
+              <div class="col">
+                <label for="branch" class="form-label">Branch</label>
+                <input id="branch" name="branch" type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="row mt-2  mb-5 border border-dark-subtle">
+              <h6 class="mt-2">Address</h6>
+              <div class="col mb-2">
+                <label for="address1" class="form-label">no or name</label>
+                <input id="address1" name="address1" type="text" class="form-control">
+              </div>
+              <div class="col mb-5">
+                <label for="address2" class="form-label">Lane</label>
+                <input id="address2" name="address2" type="text" class="form-control">
+              </div>
+              <div class="col mb-2">
+                <label for="address3" class="form-label">City</label>
+                <input id="address3" name="address3" type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="row  mb-3 border border-dark-subtle">
+              <div class="col mt-3 ">
+                <label for="empContact" class="form-label">Contact Number</label>
+                <input id="empContact" name="contact" type="text" class="form-control">
+              </div>
+              <div class="col mb-5 mt-3">
+                <label for="eContact" class="form-label">Emergency Contact</label>
+                <input id="eContact" name="emgContact" type="text" class="form-control">
+              </div>
+              <div class="col mb-2 mt-3">
+                <label for="person" class="form-label">Nominated Person Name</label>
+                <input id="person" name="person" type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="row g-5 mb-5">
+              <div class="col">
+                <label for="birth" class="form-label">Date Of Birth</label>
+                <input type="date" id="birth" name="birth" value="2018-07-22" />
+              </div>
+              <div class="col">
+                <label for="startDate" class="mb-2 w-50">Join date:</label>
+                <input type="date" id="startDate" name="joinDate" value="2018-07-22" />
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="col me-3">
+                <input type="file" class="form-control" id="picture">
+                <label class="input-group-text bg-danger w-25  text-white" for="picture">Upload</label>
+              </div>
+              <div class="col">
+                <img name="pic" id="img" src="../img/other/img.png" height="150" width="250"/>
+                <input type="file" id="imgInput" accept="image/*" style="display:none">
+              </div>
+            </div>
+
+            <div class="button">
+              <button type="button" id="btnSave" class="animated-button save"><span> Save</span><span class="saveS"></span></button>
+              <button type="button" id="btnUpdate" class="animated-button update"><span>Update</span><span class="updateS"></span></button>
+              <button type="button" id="btnDelete" class="animated-button delete"><span>Delete</span><span class="deleteS"></span></button>
+            </div>
+
+          </form>
+        </div>
+
+
+
+        <div class="table-data">
+          <div class="box-info-tbl">
+
+            <div class="input-group">
+              <div class="form-outline" data-mdb-input-init>
+                <input type="search" id="form1" class="form-control" style="width: 300px" placeholder="Search" />
+                <label class="form-label" for="form1"></label>
+              </div>
+              <button type="button" class="btn btn-primary" style="height:20px; position: relative; height: 38px; right: 40px;" data-mdb-ripple-init>
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+
+            <table class="table table-bordered table-hover">
+              <thead class="table-success bg-success">
+              <tr style="width: 10%">
+                <th>Employee_code</th>
+                <th>Employee_Name</th>
+                <!--<th>Employee Profile Pic</th>-->
+                <th>Gender</th>
+                <th>Status</th>
+                <th>Designation</th>
+                <th>Access_Role</th>
+                <th>Date_of_Join</th>
+                <th>Date_of_birth</th>
+                <th>Attached_Branch</th>
+                <th>Employee_Address</th>
+                <th>Contact_No</th>
+                <th>Inform_emergency</th>
+                <th>Emergency_Contact</th>
+                <th>Email</th>
+              </tr>
+              </thead>
+
+              <tbody id="tblEmployee">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+</main>
+<script src="../assets/jQuery/jquery-3.6.1.min.js"></script>
+<script src="../controller/login.js"></script>
+<script src="../controller/validation/validation.js"></script>
+<script src="../controller/employeeForm.js"></script>
+<script src="../controller/customer.js"></script>
+<script src="../assets/font-awsome/js/all.min.js"></script>
+<!--<script src="../assets/bootstrap/js/bootstrap.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

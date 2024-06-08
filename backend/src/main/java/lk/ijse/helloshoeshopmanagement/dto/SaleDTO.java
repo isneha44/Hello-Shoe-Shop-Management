@@ -1,32 +1,30 @@
 package lk.ijse.helloshoeshopmanagement.dto;
 
+
+
+import lk.ijse.helloshoeshopmanagement.enums.Payment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-/**
- * @author Imalka Gayani
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class SaleDTO {
-    private String itemCode;
-    private String orderNo;
-    private String customerName;
-    private String itemDesc;
-    private int size;
-    private double unitPrice;
-    private int itemQty;
-    private double totalPrice;
-    private LocalDateTime purchaseDate;
-    private String paymentMethod;
-    private double addedPoints;
-    private String cashierName;
-    private Date createDate;
-    private Date updateDate;
+
+    private String oid;
+    private String purchaseDate;
+    private Double total;
+    private Payment paymentMethod;
+    private Integer totalPoints;
+    private String cashier;
+    private CustomerDTO customer;
+
+    private List<SaleDetailsDTO> saleDetails = new ArrayList<>();
 }

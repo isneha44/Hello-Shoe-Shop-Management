@@ -1,138 +1,82 @@
 package lk.ijse.helloshoeshopmanagement.controller;
 
-import lk.ijse.helloshoeshopmanagement.entity.Employee;
-import lk.ijse.helloshoeshopmanagement.enums.Gender;
-import lk.ijse.helloshoeshopmanagement.enums.Role;
+
+
+import lk.ijse.helloshoeshopmanagement.dto.CustomDTO;
+import lk.ijse.helloshoeshopmanagement.dto.EmployeeDTO;
+import lk.ijse.helloshoeshopmanagement.embeded.Address;
 import lk.ijse.helloshoeshopmanagement.service.EmployeeService;
-import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.LogManager;
+import lk.ijse.helloshoeshopmanagement.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.UUID;
-
-/**
- * @author Imalka Gayani
- */
 @RestController
-@RequestMapping("/api/employee")
-@RequiredArgsConstructor
+@RequestMapping("api/v1/employee")
+@CrossOrigin(origins = "*")
 public class EmployeeController {
 
     @Autowired
-    private final EmployeeService employeeService;
-    private static final org.apache.logging.log4j.Logger loggerLog4J = LogManager.getLogger(EmployeeController.class);
-
-    @PostMapping("/save")
-    public ResponseEntity<Employee> saveEmployee(@RequestBody Map<String, String> credentials) {
-        loggerLog4J.info("Start saveEmployee");
-        try {
-            String[] requiredFields = {"employeeName", "profilePic", "gender", "status", "designation", "accessRole",
-                    "dob", "dateOfJoin", "attachedBranch", "addressLine1", "contactNo", "email", "emergencyContactPerson", "emergencyContactNo"};
-            validateMap(credentials, requiredFields);
-
-            Employee employee = new Employee();
-            UUID employeeCode = credentials.get("employeeCode") != null ? UUID.fromString(credentials.get("employeeCode")) : null;
-
-            if (employeeCode != null) {
-                Optional<Employee> byID = employeeService.findByEmployeeCode(employeeCode);
-                if (byID.isPresent()) {
-                    employee.setEmployeeCode(employeeCode);
-                }
-            }
-            employee.setEmployeeName(credentials.get("employeeName"));
-            employee.setProfilePic(credentials.get("profilePic"));
-            employee.setGender(Gender.valueOf(credentials.get("gender")));
-            employee.setStatus(credentials.get("status"));
-            employee.setDesignation(credentials.get("designation"));
-            employee.setAccessRole(Role.valueOf(credentials.get("accessRole")));
-            employee.setDob(new SimpleDateFormat("yyyy-MM-dd").parse(credentials.get("dob")));
-            employee.setDateOfJoin(new SimpleDateFormat("yyyy-MM-dd").parse(credentials.get("dateOfJoin")));
-            employee.setAttachedBranch(credentials.get("attachedBranch"));
-            employee.setAddressLine1(credentials.get("addressLine1"));
-            employee.setAddressLine2(credentials.get("addressLine2"));
-            employee.setAddressLine3(credentials.get("addressLine3"));
-            employee.setAddressLine4(credentials.get("addressLine4"));
-            employee.setAddressLine5(credentials.get("addressLine5"));
-            employee.setContactNo(credentials.get("contactNo"));
-            employee.setEmail(credentials.get("email"));
-            employee.setEmergencyContactPerson(credentials.get("emergencyContactPerson"));
-            employee.setEmergencyContactNo(credentials.get("emergencyContactNo"));
-
-            return ResponseEntity.ok(employeeService.saveEmployee(employee));
-        } catch (Exception e) {
-            handleException(e);
-            loggerLog4J.error("Error Occurred while saving Employee");
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        } finally {
-            loggerLog4J.info("End saveEmployee");
-        }
-    }
+    private EmployeeService service;
 
     @GetMapping
-    public ResponseEntity<List<Employee>> getAllEmployees() {
-        loggerLog4J.info("Start getAllEmployees");
-        try {
-            loggerLog4J.info("End getAllEmployees");
-            return ResponseEntity.ok(employeeService.getAllEmployees());
-        } catch (Exception e) {
-            handleException(e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+    public ResponseUtil getAllEmployee(){
+        return new ResponseUtil("200", "Successfully Loaded. :", service.loadAllEmployee());
     }
 
+
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping
+    public ResponseUtil saveEmployee(@ModelAttribute EmployeeDTO employeeDTO, Address address){
+        System.out.println(employeeDTO.toString());
+        System.out.println(employeeDTO.getAddress());
+        employeeDTO.setAddress(address);
+        /*String profile = UtilMatter.convertBase64(profilePic);
+        employeeDTO.setPic(profile);*/
+        service.saveEmployee(employeeDTO);
+        System.out.println(employeeDTO.getCode());
+        return new ResponseUtil("200", "Successfully Registered.!", null);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PutMapping
+    public ResponseUtil updateEmployee(@ModelAttribute EmployeeDTO employeeDTO,Address address){
+        employeeDTO.setAddress(address);
+        service.updateEmployee(employeeDTO);
+        return new ResponseUtil("200", "Successfully Updated. :"+ employeeDTO.getCode(),null);
+
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
     @DeleteMapping
-    public ResponseEntity<String> deleteEmployee(@RequestParam UUID employeeCode) {
-        loggerLog4J.info("Start deleteEmployee");
-        Optional<Employee> optionalEmployee = employeeService.findByEmployeeCode(employeeCode);
-        if (optionalEmployee.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Employee not found");
-        }
-        try {
-            Employee employee = optionalEmployee.get();
-            employeeService.deleteEmployee(employee);
-            loggerLog4J.info("End deleteEmployee");
-            return ResponseEntity.ok("Employee Deleted Successfully");
-        } catch (Exception e) {
-            handleException(e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+    public ResponseUtil deleteEmployee(@RequestParam String code){
+        service.deleteEmployee(code);
+        return new ResponseUtil("200", "Successfully Deleted. :"+ code,null);
     }
 
-    @PostMapping("/employeeCode")
-    public ResponseEntity<Optional<Employee>> findByEmployeeCode(@RequestParam UUID employeeCode) {
-        loggerLog4J.info("Start findByEmployeeCode");
-        try {
-            loggerLog4J.info("End findByEmployeeCode");
-            Optional<Employee> employee = employeeService.findByEmployeeCode(employeeCode);
-            if (employee.isPresent()) {
-                return ResponseEntity.ok(employee);
-            } else {
-                return ResponseEntity.notFound().build();
-            }
-        } catch (Exception e) {
-            handleException(e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+   /* @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/searchEmployee")
+    public EmployeeDTO searchEmpId(String code){
+        return service.searchEmpId(code);
+    }*/
+
+    @GetMapping(path = "/searchEmployee")
+    @ResponseStatus(HttpStatus.CREATED)
+    public EmployeeDTO searchEmpId(@RequestParam String code, @RequestParam String name){
+        return service.searchEmpId(code, name); // Adjusted method call
     }
 
-    private void handleException(Exception e) {
-        loggerLog4J.error("Error ", e);
-        e.printStackTrace();
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/EmployeeIdGenerate")
+    public @ResponseBody CustomDTO employeeIdGenerate() {
+        return service.employeeIdGenerate();
     }
 
-    private void validateMap(Map<String, String> assetCategoryMap, String[] requiredFields) {
-        for (String field : requiredFields) {
-            if (assetCategoryMap.get(field) == null || assetCategoryMap.get(field).isEmpty()) {
-                throw new IllegalArgumentException("Not found " + field);
-            }
-        }
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/empCount")
+    public @ResponseBody CustomDTO getCustomerCount() {
+        return service.getSumEmployee();
     }
+
 }
-

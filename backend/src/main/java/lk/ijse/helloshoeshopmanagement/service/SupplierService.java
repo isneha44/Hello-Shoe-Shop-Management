@@ -1,18 +1,23 @@
 package lk.ijse.helloshoeshopmanagement.service;
 
-import lk.ijse.helloshoeshopmanagement.entity.Supplier;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import lk.ijse.helloshoeshopmanagement.dto.CustomDTO;
+import lk.ijse.helloshoeshopmanagement.dto.SupplierDTO;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * @author Imalka Gayani
- */
+import java.util.ArrayList;
+
 public interface SupplierService {
 
-    Supplier saveSupplier(Supplier supplier);
-    List<Supplier> getAllSuppliers();
-    Optional<Supplier> findBySupplierCode(UUID supplierCode);
-    boolean deleteSupplier(Supplier supplierCode);
+    void saveSupplier(SupplierDTO dto);
+    void updateSupplier(SupplierDTO dto);
+    void deleteSupplier(String id);
+    SupplierDTO searchSupId(String id);
+    SupplierDTO searchSupId(String code, String name);
+    ArrayList<SupplierDTO> loadAllSupplier();
+
+    @ResponseBody
+    CustomDTO supplierIdGenerate();
+    SupplierDTO getSumSupplier();
+
 }

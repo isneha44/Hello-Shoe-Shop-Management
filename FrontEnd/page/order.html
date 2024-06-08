@@ -1,0 +1,368 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Order</title>
+  <meta name="theme-color" content="red">
+  <meta name="robots" content="index,follow">
+  <link rel="stylesheet" href="../assets/normalize.css">
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../style/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="shortcut icon" type="image/x-icon" href="../logo3.png">
+  <link rel="stylesheet" href="../style/order.css">
+  <link rel="stylesheet" href="../style/admin.css">
+  <link rel="stylesheet" href="../style/popup.css">
+
+
+</head>
+<body>
+<main>
+  <section>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <a href="#" class="profile">
+        <img src="../logo3.png">
+      </a>
+      <a href="#" class="logo ">
+        <i class=''></i>
+        <div class="logo-name"><span>HELLO</span>SHOP</div>
+      </a>
+      <ul class="side-menu">
+        <li><b><a href="../page/cashierDashboard.html"><i class='bx bxs-dashboard'></i>Dashboard</a></b></li>
+        <li class="active"><b><a href="../page/order.html"><i class='bx bx-user-pin'></i>Orders</a></b></li>
+        <li><b><a href="../page/orderDetail.html"><i class='bx bxs-objects-vertical-bottom'></i>Order Details</a></b></li>
+        <li><b><a href="../page/viewSupplier.html"><i class='bx bx-purchase-tag'></i>Supplier</a></b></li>
+        <li><b><a href="../page/viewItem.html"><i class='bx bx-store-alt'></i>Item</a></b></li>
+        <li><b><a href="../page/viewEmployee.html"><i class='bx bx-group'></i>Employee</a></b></li>
+        <li><b><a href="../page/style.css"><i class='bx bx-cog'></i>Settings</a></b></li>
+      </ul>
+      <ul class="side-menu">
+        <li id="log_out">
+          <a href="../page/login.html" class="logout">
+            <i class='bx bx-log-out-circle'></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <div class="content">
+      <!-- Navbar -->
+      <nav>
+        <i class='bx bx-menu' ></i>
+        <form action="#">
+          <div class="form-input">
+            <input type="search" id="search_Id" placeholder="Search...">
+            <button type="button" class="search-btn"><i class='bx bx-search' ></i></button>
+          </div>
+        </form>
+        <!--<form action="#">
+          <div class="form-input"  onload="startTime()" >
+            <div id="MyClockDisplay" class="clock">
+              <div id="clockDate">
+                <div class="clockDate-wrapper">
+                  <div id="clock"></div>
+                  <div id="date"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>-->
+
+        <input type="checkbox" id="theme-toggle" hidden>
+        <label for="theme-toggle" class="theme-toggle"></label>
+
+        <a href="#" class="notif">
+          <i class='bx bx-bell'></i>
+          <span class="count">3</span>
+        </a>
+        <a href="#" class="profile">
+          <img src="../img/other/p1.jpg" height="70" width="70"/>
+        </a>
+      </nav>
+      <!-- End of Navbar -->
+      <div class="cusF">
+        <h4>Order Manage</h4>
+        <ul id="info">
+          <li>
+
+            <div class="row">
+              <div class="col">
+                <label for="oid" class="form-label">Order ID :</label>
+                <input class="form-control form-label" id="oid" name="oid" type="text" readonly>
+              </div>
+              <div class="col">
+                <label class="form-label">Date :</label>
+                <input class="form-control" id="oDate" name="date" type="text">
+              </div>
+              <div class="col">
+                <label for="customId" class="form-label">Customer-Id :</label>
+                <select id="customId" name="custId" class="form-select" aria-label="Default select example" >
+                  <option  value="CUSTOMER_ID">cash</option>
+                </select>
+                <!--<input id="customId" name="customId" class="form-control" type="text">-->
+              </div>
+              <div class="col">
+                <label for="custName" class="form-label">Customer-Name :</label>
+                <input class="form-control" name="customer_name" id="custName" type="text">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col">
+                <label for="itemId" class="form-label"> Item code</label>
+                <input class="form-control" id="itemId" name="code" aria-label="Default select example">
+                <!--<select id="itemId" name="code" class="form-select" aria-label="Default select example" >
+                  <option  value="ITEM_ID"></option>
+                </select>-->
+              </div>
+              <div class="col">
+                <label for="itemName" class="form-label">Item name</label>
+                <input id="itemName" name="itemName" type="text" class="form-control">
+              </div>
+              <div class="col">
+                <label for="qprice" class="form-label">Unit Price :</label>
+                <input class="form-control" id="qprice" type="text">
+              </div>
+              <div class="col">
+                <label for="qtyH" class="form-label">QtyOnHand :</label>
+                <input class="form-control" name="qtyH" id="qtyH" type="text">
+              </div>
+              <div class="col">
+                <label for="qty" class="form-label">Order qty</label>
+                <input class="form-control" name="qty" id="qty" min="1" type="number">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <label for="cashierName">Cashier :</label>
+                <input class="form-control" name="name" id="cashierName" type="text">
+              </div>
+              <div class="col">
+                <label for="tPoint" class="form-label">Loyalty Point :</label>
+                <input class="form-control" name="totalPoints" id="tPoint" type="text">
+              </div>
+              <div class="col">
+                <label for="cusLevel" class="form-label">Level</label>
+                <input id="cusLevel" name="level" type="text" class="form-control">
+              </div>
+              <div class="col">
+                <label for="status" class="form-label">status</label>
+                <input id="status" type="text" class="form-control" >
+              </div>
+
+              <div class="col">
+                <button type="button" id="BTN" class="btn btn-primary"><i class="fa fa-shopping-cart">&nbsp;</i>Add To Cart</button>
+              </div>
+            </div>
+
+          </li>
+        </ul>
+
+        <div class="table-data">
+          <div class="order">
+            <div class="head">
+              <h3>Recent Orders</h3>
+              <i class='bx bx-search' ></i>
+              <i class='bx bx-filter' ></i>
+            </div>
+            <table>
+              <thead>
+              <tr>
+                <th>Item_code</th>
+                <th>Item_Name</th>
+                <th>Unit Price</th>
+                <th>order qty</th>
+                <th>Total</th>
+              </tr>
+              </thead>
+              <tbody id="tblOrder">
+
+              </tbody>
+            </table>
+          </div>
+
+          <div class="todo-o">
+
+            <div class=" row">
+              <label for="payM" class="col-sm-6 col-form-label">Payment Method</label>
+              <div class="col">
+                <select id="payM" name="paymentMethod" class="form-select" aria-label="Default select example" >
+                  <option  value="CASH">Cash</option>
+                  <option  value="CARD">Card</option>
+                </select>
+              </div>
+            </div>
+
+            <hr>
+
+
+            <div class="row">
+              <div class="col-sm-8">
+                <label for="amount" class="col-sm-2 col-form-label">Amount:</label>
+                <input type="text" class="form-control" id="amount">
+              </div>
+              <div class="col">
+                <label for="discount" class="col-sm-2 col-form-label">Discount:</label>
+                <input type="text" name="discount" class="form-control" id="discount" value="0">
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="mb-3 row">
+              <label for="total" class="col-sm-2 col-form-label">Total</label>
+              <div class="col-sm-9">
+                <input type="text" name="total" class="form-control" id="total">
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row mb-3">
+              <div class="col">
+                <label for="cash">Cash :</label>
+                <input class="form-control" name="cash" id="cash" type="text">
+                <strong class="control-error" id="lblCheck"></strong>
+              </div>
+              <div class="col">
+                <label for="balance">Balance :</label>
+                <input class="form-control" id="balance" type="text">
+              </div>
+            </div>
+
+
+            <button type="button" id="cardBtn">Card Payment</button>
+
+            <div id="myPopup" class="popup">
+              <div class="popup-content">
+                <button id="closePopup"><i class='bx bx-x'></i></button>
+                <h4 class="mt-8 mb-6">Credit Card Info</h4>
+                <div class="todo-o">
+
+                  <div class=" row">
+                    <img style="padding: 20px; height: 100px" class="img-responsive cc-img" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                  </div>
+
+                  <hr>
+
+                  <div class="row">
+                    <label>Card Number</label>
+                    <div class="input-group">
+                      <input type="tel" class="form-control" placeholder="Valid Card Number" />
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-xs-7 col-md-7">
+                      <div class="form-group">
+                        <label><span class="hidden-xs">Expiration</span><span class="visible-xs-inline">EXP</span> Date</label>
+                        <input type="tel" class="form-control" placeholder="MM / YY" />
+                      </div>
+                    </div>
+                    <div class="col-xs-5 col-md-5 pull-right">
+                      <div class="form-group">
+                        <label>CV Code</label>
+                        <input type="tel" class="form-control" placeholder="CVC" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="form-group">
+                        <label>Card Owner</label>
+                        <input type="text" class="form-control" placeholder="Card Owner Names" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="button" id="placeBtnC">Place Order</button>
+
+
+                </div>
+              </div>
+            </div>
+
+
+            <button type="button" id="placeBtn">Place Order</button>
+
+
+          </div>
+
+        </div>
+      </div>
+
+<!--
+      <div class="cusF">
+        <div class="table-data">
+          <div class="box-info-tbl">
+
+            <div class="input-group">
+              <div class="form-outline" data-mdb-input-init>
+                <input type="search" id="form1" class="form-control" style="width: 300px" placeholder="Search" />
+                <label class="form-label" for="form1"></label>
+              </div>
+              <button type="button" class="btn btn-primary" style="height:20px; position: relative; height: 38px; right: 40px;" data-mdb-ripple-init>
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+
+            &lt;!&ndash;<table class="table table-bordered table-hover ">
+              <thead class="table-success bg-success">
+              <tr>
+                <th>Order Id</th>
+                <th>Order Date</th>
+                <th>Customer</th>
+                <th>payment method</th>
+                <th>Total</th>
+                <th>cashier name</th>
+              </tr>
+              </thead>
+
+              <tbody id="tblSaleD">
+
+              </tbody>
+            </table>
+
+
+            <table class="table table-bordered table-hover ">
+              <thead class="table-success bg-success">
+              <tr>
+                <th>Order Id</th>
+                <th>Item Code</th>
+                <th>Qty</th>
+                <th>Total</th>
+              </tr>
+              </thead>
+
+              <tbody id="tblSale">
+
+              </tbody>
+            </table>&ndash;&gt;
+
+          </div>
+        </div>
+
+      </div>-->
+    </div>
+
+
+  </section>
+
+</main>
+
+<script src="../assets/jQuery/jquery-3.6.1.min.js"></script>
+<script src="../controller/validation/validation.js"></script>
+<script src="../controller/login.js"></script>
+<script src="../controller/OrderForm.js"></script>
+<script src="../controller/customer.js"></script>
+<script src="../controller/popup.js"></script>
+<script src="../assets/font-awsome/js/all.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
+

@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <meta name="theme-color" content="red">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/normalize.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" type="image/x-icon" href="../logo3.png">
+
+</head>
+<body>
+<main>
+    <section>
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <a href="#" class="profile">
+                <img src="../logo3.png">
+            </a>
+            <a href="#" class="logo ">
+                <i class=''></i>
+                <div class="logo-name"><span>HELLO</span>SHOP</div>
+            </a>
+            <ul class="side-menu">
+                <li><b><a href="../page/dashboardAdmin.html"><i class='bx bxs-dashboard'></i>Dashboard</a></b></li>
+                <li class="active"><b><a href="../page/employee.html"><i class='bx bx-user-pin'></i>Employee</a></b></li>
+                <li><b><a href="../page/item.html"><i class='bx bxs-objects-vertical-bottom'></i>Stock</a></b></li>
+                <li><b><a href="../page/supplier.html"><i class='bx bx-purchase-tag'></i>Supplier</a></b></li>
+                <li><b><a href="../page/todayOrder.html"><i class='bx bx-store-alt'></i>Orders</a></b></li>
+                <li><b><a href="../page/return.html"><i class='bx bx-recycle'></i>Return</a></b></li>
+                <li><b><a href="../page/user.html"><i class='bx bx-group'></i>Users</a></b></li>
+                <li><b><a href="../page/style.css"><i class='bx bx-cog'></i>Settings</a></b></li>
+
+            </ul>
+            <ul class="side-menu">
+                <li id="log_out">
+                    <a href="../page/login.html" class="logout">
+                        <i class='bx bx-log-out-circle'></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- End of Sidebar -->
+
+        <div class="content">
+            <!-- Navbar -->
+            <nav>
+                <i class='bx bx-menu' ></i>
+                <form action="#">
+                    <div class="form-input">
+                        <input type="search" id="search_Id" placeholder="Search...">
+                        <button type="button" class="search-btn"><i class='bx bx-search' ></i></button>
+                    </div>
+                </form>
+
+                <input type="checkbox" id="theme-toggle" hidden>
+                <label for="theme-toggle" class="theme-toggle"></label>
+
+                <a href="#" class="notif">
+                    <i class='bx bx-bell'></i>
+                    <span class="count">3</span>
+                </a>
+                <a href="#" class="profile">
+                    <img src="../img/other/p1.jpg" height="70" width="70"/>
+                </a>
+            </nav>
+            <!-- End of Navbar -->
+
+            <h1>User Form </h1>
+            <div class="cusF">
+
+                <div class="box-info" style="width: 600px">
+                    <form id="rForm">
+                        <div class="row g-5 mb-4">
+                            <div class="col">
+                                <label for="uName" class="form-label"> User Name</label>
+                                <input id="uName" name="name" type="text" class="form-control">
+                            </div>
+
+                            <div class="col">
+                                <label for="uRole" class="form-label">Role</label>
+                                <input id="uRole" type="text" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <div class="button">
+                            <button type="button" id="uDelete" class="animated-button save"><span> Delete</span><span class="saveS"></span></button>
+                            <a href="register.html">
+                            <button type="button" id="btnDelete" class="animated-button delete"><span>SingUp</span><span class="deleteS"></span></button>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+<script src="../assets/jQuery/jquery-3.6.1.min.js"></script>
+<script src="../controller/login.js"></script>
+<script src="../controller/user.js"></script>
+<script src="../controller/validation/validation.js"></script>
+<script src="../controller/employeeForm.js"></script>
+<script src="../controller/customer.js"></script>
+<script src="../assets/font-awsome/js/all.min.js"></script>
+<!--<script src="../assets/bootstrap/js/bootstrap.min.js"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

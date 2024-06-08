@@ -1,5 +1,7 @@
 package lk.ijse.helloshoeshopmanagement.dto;
 
+
+import lk.ijse.helloshoeshopmanagement.embeded.Address;
 import lk.ijse.helloshoeshopmanagement.enums.Gender;
 import lk.ijse.helloshoeshopmanagement.enums.Level;
 import lombok.AllArgsConstructor;
@@ -7,48 +9,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Timestamp;
 
-/**
- * @author Imalka Gayani
- */
+
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class CustomerDTO {
-    private String customerCode;
 
+    private String code;
     private String name;
-
     private Gender gender;
-
-    private Date joinDate;
-
+    private Date loyaltyDate;
     private Level level;
-
-    private int totalPoint;
-
+    private Integer loyaltyPoints;
     private Date dob;
-
-    private String addressLine1;
-
-    private String addressLine2;
-
-    private String addressLine3;
-
-    private String addressLine4;
-
-    private String addressLine5;
-
+    private Address address;
     private String contact;
-
     private String email;
+    private String recentPurchaseDate;
 
-    private LocalDateTime purchaseDateAndTime;
-
-    private Date createDate;
-
-    private Date updateDate;
 }

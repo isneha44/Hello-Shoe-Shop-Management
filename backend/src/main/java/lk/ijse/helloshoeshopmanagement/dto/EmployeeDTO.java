@@ -1,41 +1,37 @@
 package lk.ijse.helloshoeshopmanagement.dto;
 
+
+import lk.ijse.helloshoeshopmanagement.embeded.Address;
+import lk.ijse.helloshoeshopmanagement.enums.Designation;
 import lk.ijse.helloshoeshopmanagement.enums.Gender;
 import lk.ijse.helloshoeshopmanagement.enums.Role;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
-import java.util.Date;
-import java.util.UUID;
-/**
- * @author Imalka Gayani
- */
+import java.sql.Date;
+
+
+
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class EmployeeDTO {
-    private UUID employeeCode;
-    private String employeeName;
-    private String profilePic;
+
+    private String code;
+    private String name;
+    private String pic;
+    private Designation designation;
     private Gender gender;
     private String status;
-    private String designation;
-    private Role accessRole;
-    private Date dob;
-    private Date dateOfJoin;
-    private String attachedBranch;
-    private String addressLine1;
-    private String addressLine2;
-    private String addressLine3;
-    private String addressLine4;
-    private String addressLine5;
-    private String contactNo;
+    private Role role;
+    private Date birth;
+    private Date joinDate ;
+    private String branch;
+    private Address address;
+    private String contact;
     private String email;
-    private String emergencyContactPerson;
-    private String emergencyContactNo;
-    private Date createDate;
-    private Date updateDate;
+    private String person;
+    private String EmgContact;
+
+    private UserDTO user;
 }

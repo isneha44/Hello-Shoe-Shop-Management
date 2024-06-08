@@ -1,16 +1,24 @@
 package lk.ijse.helloshoeshopmanagement.service;
 
-import lk.ijse.helloshoeshopmanagement.entity.Employee;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
-/**
- * @author Imalka Gayani
- */
+
+import lk.ijse.helloshoeshopmanagement.dto.CustomDTO;
+import lk.ijse.helloshoeshopmanagement.dto.EmployeeDTO;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+
 public interface EmployeeService {
-    Employee saveEmployee(Employee employee);
-    List<Employee> getAllEmployees();
-    Optional<Employee> findByEmployeeCode(UUID employeeCode);
-    boolean deleteEmployee(Employee employeeCode);
+
+    void saveEmployee(EmployeeDTO dto);
+    void updateEmployee(EmployeeDTO dto);
+    void deleteEmployee(String id);
+   /* EmployeeDTO searchEmpId(String code);*/
+
+    EmployeeDTO searchEmpId(String code, String name);
+    ArrayList<EmployeeDTO> loadAllEmployee();
+
+    @ResponseBody
+    CustomDTO employeeIdGenerate();
+    CustomDTO getSumEmployee();
 }

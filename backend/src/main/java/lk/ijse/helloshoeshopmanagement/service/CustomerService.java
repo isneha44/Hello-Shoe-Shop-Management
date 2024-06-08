@@ -1,24 +1,23 @@
 package lk.ijse.helloshoeshopmanagement.service;
 
-import lk.ijse.helloshoeshopmanagement.entity.Customer;
-import lk.ijse.helloshoeshopmanagement.enums.Level;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import lk.ijse.helloshoeshopmanagement.dto.CustomDTO;
+import lk.ijse.helloshoeshopmanagement.dto.CustomerDTO;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-/**
- * @author Imalka Gayani
- */
+import java.util.ArrayList;
+
 public interface CustomerService {
-    Customer saveCustomer(Customer customer);
-    List<Customer> getAllCustomer();
-    Optional<Customer> findByCustomerCode(UUID customerCode);
-    boolean deleteCustomer(Customer customerCode);
-    Customer findByJoinDate(Date joinDate);
-    Customer findByLevel(Level level);
-    Customer findByTotalPoint(int totalPoint);
-    Customer findByDOB(Date dob);
+
+    void saveCustomer(CustomerDTO dto);
+    void updateCustomer(CustomerDTO dto);
+    void deleteCustomer(String id);
+    CustomerDTO searchCusId(String code, String name);
+    CustomerDTO searchCusId(String code);
+    ArrayList<CustomerDTO> loadAllCustomer();
+
+    @ResponseBody
+    CustomDTO customerIdGenerate();
+    CustomDTO getSumCustomer();
 
 }

@@ -1,18 +1,12 @@
 package lk.ijse.helloshoeshopmanagement.service;
 
-import lk.ijse.helloshoeshopmanagement.entity.User;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import lk.ijse.helloshoeshopmanagement.dto.UserDTO;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-/**
- * @author Imalka Gayani
- */
 public interface UserService {
-
-    User saveUser(User user);
-    List<User> getAllUsers();
-    Optional<User> findById(UUID id);
-    boolean deleteUser(User id);
+    UserDetailsService userDetailService();
+    UserDTO searchUser(String id);
+    UserDTO searchUserNam(String name);
+    void deleteUser(String email);
 }

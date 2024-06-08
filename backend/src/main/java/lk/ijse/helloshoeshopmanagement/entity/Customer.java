@@ -1,60 +1,42 @@
 package lk.ijse.helloshoeshopmanagement.entity;
 
 import jakarta.persistence.*;
+
+import lk.ijse.helloshoeshopmanagement.embeded.Address;
 import lk.ijse.helloshoeshopmanagement.enums.Gender;
 import lk.ijse.helloshoeshopmanagement.enums.Level;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.UUID;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * @author Imalka Gayani
- */
 @Entity
 @Data
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tbl_customer")
 public class Customer {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID customerCode;
-    @Column(name = "NAME")
+    private String code;
     private String name;
-    @Column(name = "GENDER")
+    @Enumerated(EnumType.STRING)
     private Gender gender;
-    @Column(name = "JOIN_DATE")
-    private Date joinDate;
-    @Column(name = "LEVEL")
+    @Temporal(TemporalType.DATE)
+    private Date loyaltyDate;
+    @Enumerated(EnumType.STRING)
     private Level level;
-    @Column(name = "TOTAL_POINT")
-    private int totalPoint;
-    @Column(name = "DOB")
+    private Integer loyaltyPoints;
+    @Temporal(TemporalType.DATE)
     private Date dob;
-    @Column(name = "ADDRESS_LINE_1")
-    private String addressLine1;
-    @Column(name = "ADDRESS_LINE_2")
-    private String addressLine2;
-    @Column(name = "ADDRESS_LINE_3")
-    private String addressLine3;
-    @Column(name = "ADDRESS_LINE_4")
-    private String addressLine4;
-    @Column(name = "ADDRESS_LINE_5")
-    private String addressLine5;
-    @Column(name = "CONTACT")
+    @Embedded
+    private Address address;
     private String contact;
-    @Column(name = "EMAIL")
     private String email;
-    @Column(name = "PURCHASE_DATE_AND_TIME")
-    private LocalDateTime purchaseDateAndTime;
-    @Column(name = "CREATE_DATE")
-    private Date createDate;
-    @Column(name = "UPDATE_DATE")
-    private Date updateDate;
+    private String recentPurchaseDate;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "customer")
+    private List<Sales> sales = new ArrayList<>();
 }

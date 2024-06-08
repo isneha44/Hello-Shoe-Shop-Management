@@ -1,0 +1,230 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Item</title>
+  <meta name="theme-color" content="red">
+  <meta name="robots" content="index,follow">
+  <meta name="viewport" content="width=device-width initial, scale=1.0">
+  <link rel="stylesheet" href="../assets/normalize.css">
+  <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="../style/style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="shortcut icon" type="image/x-icon" href="../logo3.png">
+
+</head>
+<body>
+<main>
+  <section>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <a href="#" class="profile">
+        <img src="../logo3.png">
+      </a>
+      <a href="#" class="logo ">
+        <i class=''></i>
+        <div class="logo-name"><span>HELLO</span>SHOP</div>
+      </a>
+      <ul class="side-menu">
+        <li><b><a href="../page/dashboardAdmin.html"><i class='bx bxs-dashboard'></i>Dashboard</a></b></li>
+        <li><b><a href="../page/employee.html"><i class='bx bx-user-pin'></i>Employee</a></b></li>
+        <li class="active"><b><a href="../page/item.html"><i class='bx bxs-objects-vertical-bottom'></i>Stock</a></b></li>
+        <li><b><a href="../page/supplier.html"><i class='bx bx-purchase-tag'></i>Supplier</a></b></li>
+        <li><b><a href="../page/todayOrder.html"><i class='bx bx-store-alt'></i>Orders</a></b></li>
+        <li><b><a href="../page/return.html"><i class='bx bx-recycle'></i>Return</a></b></li>
+        <li><b><a href="../page/style.css"><i class='bx bx-group'></i>Users</a></b></li>
+        <li><b><a href="../page/style.css"><i class='bx bx-cog'></i>Settings</a></b></li>
+
+      </ul>
+      <ul class="side-menu">
+        <li id="log_out">
+          <a href="../page/login.html" class="logout"><i class='bx bx-log-out-circle'></i>Logout</a>
+        </li>
+      </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <div class="content">
+      <!-- Navbar -->
+      <nav>
+        <i class='bx bx-menu' ></i>
+        <form action="#">
+          <div class="form-input">
+            <input type="search" placeholder="Search...">
+            <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+          </div>
+        </form>
+
+        <input type="checkbox" id="theme-toggle" hidden>
+        <label for="theme-toggle" class="theme-toggle"></label>
+
+        <a href="#" class="notif">
+          <i class='bx bx-bell'></i>
+          <span class="count">3</span>
+        </a>
+        <a href="#" class="profile">
+          <img src="../img/other/p1.jpg" height="70" width="70"/>
+        </a>
+      </nav>
+      <!-- End of Navbar -->
+
+      <h1>Item Form </h1>
+      <div class="cusF">
+        <div class="box-info">
+          <form id="itemForm">
+            <div class="row g-5 mb-4">
+              <div class="col">
+                <label for="itemId" class="form-label"> Item code</label>
+                <input id="itemId" name="code" type="text" class="form-control">
+              </div>
+              <div class="col">
+                <label for="itemName" class="form-label">Item name</label>
+                <input id="itemName" name="name" type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="row g-5 mb-4">
+              <div class="col">
+                <label for="category" class="form-label">Category</label>
+                <select id="category" name="shoeType" class="form-select" aria-label="Default select example">
+                  <option selected></option>
+                  <option value="MEN">Men</option>
+                  <option value="WOMEN">Women</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="size" class="form-label">Size</label>
+                <select id="size" name="size" class="form-select" aria-label="Default select example">
+                  <option selected></option>
+                  <option value="5">Size 5</option>
+                  <option value="6">Size 6</option>
+                  <option value="7">Size 7</option>
+                  <option value="8">Size 8</option>
+                  <option value="9">Size 9</option>
+                  <option value="10">Size 10</option>
+                </select>
+              </div>
+              <div class="col mb-2">
+                <label for="qty" class="form-label">Qty</label>
+                <input id="qty" name="qty" type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              <div class="col">
+                <label for="supplier_id" class="form-label">Supplier Code</label>
+                <select id="supplier_id" name="supplier" class="form-select" aria-label="Default select example" >
+                  <option  value="SUPPLIER_ID"></option>
+                </select>
+              </div>
+              <div class="col mb-2">
+                <label for="supName" class="form-label">Supplier Name</label>
+                <input id="supName" name="supName" type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="row  mb-3 border border-dark-subtle">
+              <div class="col mt-3 ">
+                <label for="buyPrice" class="form-label">unit Price-Buy</label>
+                <input id="buyPrice" name="buyPrice" type="text" class="form-control">
+              </div>
+              <div class="col mb-5 mt-3">
+                <label for="salePrice" class="form-label">Unit Price-Sale</label>
+                <input id="salePrice" name="salePrice" type="text" class="form-control">
+              </div>
+              <div class="col mb-2 mt-3">
+                <label for="expectedProfit" class="form-label">Expected Profit</label>
+                <input id="expectedProfit" name="expectedProfit" type="text" class="form-control">
+              </div>
+            </div>
+
+            <div class="row g-5 mb-4">
+              <div class="col">
+                <label for="profitMargin" class="form-label">Profit margin</label>
+                <input id="profitMargin" name="profitMargin" type="text" class="form-control">
+              </div>
+              <div class="col">
+                <label for="status" class="form-label">Status</label>
+                <input type="text" id="status" name="status" class="form-control">
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="col me-3">
+                <input type="file" class="form-control" id="itemPicture">
+                <label class="input-group-text bg-danger w-25  text-white" for="itemPicture">Upload</label>
+              </div>
+              <div class="col">
+                <img name="itemPicture" id="imgItem" src="../img/other/img.png" height="150" width="250"/>
+                <input type="file" id="imgInput" accept="image/*" style="display:none">
+              </div>
+            </div>
+
+            <div class="button">
+              <button id="btnSaveI" type="button" class="animated-button save"><span> Save</span><span class="saveS"></span></button>
+              <button id="btnUpdateI" type="button" class="animated-button update"><span>Update</span><span class="updateS"></span></button>
+              <button id="btnDeleteI" type="button" class="animated-button delete"><span>Delete</span><span class="deleteS"></span></button>
+            </div>
+
+          </form>
+        </div>
+
+
+
+        <div class="table-data">
+          <div class="box-info-tbl">
+
+            <div class="input-group">
+              <div class="form-outline" data-mdb-input-init>
+                <input type="search" id="form1" class="form-control" style="width: 300px" placeholder="Search" />
+                <label class="form-label" for="form1"></label>
+              </div>
+              <button type="button" class="btn btn-primary" style="height:20px; position: relative; height: 38px; right: 40px;" data-mdb-ripple-init>
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+
+            <table class="table table-bordered table-hover ">
+              <thead class="table-primary ">
+              <tr>
+                <th>Item_code</th>
+                <th>Item_Name</th>
+                <th>Category</th>
+                <th>Size</th>
+                 <th>Item_qty</th>
+                <th>Supplier_Code</th>
+                <th>Supplier_Name</th>
+                <th>Sale_price</th>
+                <th>Buy_price</th>
+                <th>Expected_Profit</th>
+                <th>Profit_margin</th>
+                <th>Status</th>
+              </tr>
+              </thead>
+
+              <tbody id="tblItem">
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+</main>
+
+<script src="../assets/jQuery/jquery-3.6.1.min.js"></script>
+<script src="../controller/login.js"></script>
+<script src="../controller/validation/validation.js"></script>
+<script src="../controller/itemForm.js"></script>
+<script src="../controller/customer.js"></script>
+<script src="../assets/font-awsome/js/all.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

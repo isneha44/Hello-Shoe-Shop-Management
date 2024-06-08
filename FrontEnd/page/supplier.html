@@ -1,0 +1,193 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Supplier</title>
+    <meta name="theme-color" content="red">
+    <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width initial, scale=1.0">
+    <link rel="stylesheet" href="../assets/normalize.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" type="image/x-icon" href="../logo3.png">
+
+</head>
+<body>
+<main>
+    <section>
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <a href="#" class="profile">
+                <img src="../logo3.png">
+            </a>
+            <a href="#" class="logo ">
+                <i class=''></i>
+                <div class="logo-name"><span>HELLO</span>SHOP</div>
+            </a>
+            <ul class="side-menu">
+                <li><b><a href="../page/dashboardAdmin.html"><i class='bx bxs-dashboard'></i>Dashboard</a></b></li>
+                <li><b><a href="../page/employee.html"><i class='bx bx-user-pin'></i>Employee</a></b></li>
+                <li><b><a href="../page/item.html"><i class='bx bxs-objects-vertical-bottom'></i>Stock</a></b></li>
+                <li class="active"><b><a href="../page/supplier.html"><i class='bx bx-purchase-tag'></i>Supplier</a></b></li>
+                <li><b><a href="../page/todayOrder.html"><i class='bx bx-store-alt'></i>Orders</a></b></li>
+                <li><b><a href="../page/return.html"><i class='bx bx-recycle'></i>Return</a></b></li>
+                <li><b><a href="../page/user.html"><i class='bx bx-group'></i>Users</a></b></li>
+                <li><b><a href="../page/style.css"><i class='bx bx-cog'></i>Settings</a></b></li>
+
+
+            </ul>
+            <ul class="side-menu">
+                <li id="log_out">
+                    <a href="../page/login.html" class="logout">
+                        <i class='bx bx-log-out-circle'></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- End of Sidebar -->
+
+        <div class="content">
+            <!-- Navbar -->
+            <nav>
+                <i class='bx bx-menu' ></i>
+                <form action="#">
+                    <div class="form-input">
+                        <input class="form-control" id="supSearch" type="search" placeholder="Search...">
+                        <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+                    </div>
+                </form>
+
+                <input type="checkbox" id="theme-toggle" hidden>
+                <label for="theme-toggle" class="theme-toggle"></label>
+
+                <a href="#" class="notif">
+                    <i class='bx bx-bell'></i>
+                    <span class="count">3</span>
+                </a>
+                <a href="#" class="profile">
+                    <img src="../img/other/p1.jpg" height="70" width="70"/>
+                </a>
+            </nav>
+            <!-- End of Navbar -->
+
+            <h1>Supplier Form </h1>
+            <div class="cusF">
+                <div class="box-info">
+                    <form id="supForm">
+                        <div class="row g-5 mb-4">
+                            <div class="col">
+                                <label for="supId" class="form-label"> Supplier code</label>
+                                <input id="supId" name="code" type="text" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="supName" class="form-label">Supplier name</label>
+                                <input id="supName" name="name" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row g-5 mb-5">
+                            <div class="col">
+                                <label for="contact1" class="form-label">Contact No</label>
+                                <input id="contact1" name="contact1" type="text" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="contact2" class="form-label">Contact No</label>
+                                <input id="contact2" name="contact2" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mt-2   mb-5 border border-dark-subtle">
+                            <h6 class="mt-2">Supplier Address</h6>
+                            <div class="col mb-2">
+                                <label for="address1" class="form-label">no or name</label>
+                                <input id="address1" name="address1" type="text" class="form-control">
+                            </div>
+                            <div class="col mb-5">
+                                <label for="address2" class="form-label">Lane</label>
+                                <input id="address2" name="address2" type="text" class="form-control">
+                            </div>
+                            <div class="col mb-2">
+                                <label for="address3" class="form-label">City</label>
+                                <input id="address3" name="address3" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row g-5 mb-4">
+                            <div class="col">
+                                <label for="category" class="form-label">Category</label>
+                                <select id="category" name="category" class="form-select" aria-label="Default select example">
+                                    <option selected></option>
+                                    <option value="INTERNATIONAL">International</option>
+                                    <option value="LOCAL">Local</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="email" class="form-label">Email</label><br>
+                                <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                        </div>
+
+                        <div class="button">
+                            <button type="button" id="btnSaveS" class="animated-button save"><span> Save</span><span class="saveS"></span></button>
+                            <button type="button" id="btnUpdateS" class="animated-button update"><span>Update</span><span class="updateS"></span></button>
+                            <button type="button" id="btnDeleteS" class="animated-button delete"><span>Delete</span><span class="deleteS"></span></button>
+                        </div>
+                    </form>
+                </div>
+
+
+
+                <div class="table-data">
+                    <div class="box-info-tbl">
+
+                        <div class="input-group">
+                            <div class="form-outline" data-mdb-input-init>
+                                <input type="search" id="form1" class="form-control" style="width: 300px" placeholder="Search" />
+                                <label class="form-label" for="form1"></label>
+                            </div>
+                            <button type="button" class="btn btn-primary" style="height:20px; position: relative; height: 38px; right: 40px;" data-mdb-ripple-init>
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+
+                        <table class="table table-bordered table-hover ">
+                            <thead class="table-success bg-success">
+                            <tr>
+                                <th>Supplier code</th>
+                                <th>Supplier Name</th>
+                                <th>Supplier Address</th>
+                                <th>Category</th>
+                                <th>ContactNo</th>
+                                <th>ContactNo</th>
+                                <th>Email</th>
+                                 </tr>
+                            </thead>
+
+                            <tbody id="tblSupplier">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+<script src="../assets/jQuery/jquery-3.6.1.min.js"></script>
+<script src="../controller/login.js"></script>
+<script src="../controller/validation/validation.js"></script>
+<script src="../controller/supplierForm.js"></script>
+<script src="../controller/customer.js"></script>
+<script src="../assets/font-awsome/js/all.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
